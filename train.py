@@ -239,7 +239,7 @@ tf.image_summary("grayscale", grayscale_rgb, max_images=1)
 saver = tf.train.Saver()
 
 # Create the graph, etc.
-init_op = tf.initialize_all_variables()
+init_op = tf.group(tf.initialize_all_variables(), tf.initialize_local_variables())
 
 # Create a session for running operations in the Graph.
 sess = tf.Session()
